@@ -23,29 +23,28 @@ import com.br.api.api.repository.PessoaRepository;
 @RequestMapping("pessoas")
 public class PessoaController {
 
-	@Autowired
-	private PessoaRepository pessoaRepository;
+    @Autowired
+    private PessoaRepository pessoaRepository;
 
-	@GetMapping
-	private List<Pessoa> listar() {
-		return pessoaRepository.findAll();
-	}
+    @GetMapping
+    private List<Pessoa> listar() {
+        return pessoaRepository.findAll();
+    }
 
-	@PostMapping
-	public ResponseEntity<Pessoa> criar(@RequestBody Pessoa pessoa, HttpServletResponse response) {
-		Pessoa pessoaSalva = pessoaRepository.save(pessoa);
+    @PostMapping
+    public ResponseEntity<Pessoa> criar(@RequestBody Pessoa pessoa, HttpServletResponse response) {
+        Pessoa pessoaSalva = pessoaRepository.save(pessoa);
 
-		URI uri = ServletUriComponentsBuilder.fromCurrentRequestUri().path("/{codigo}")
-				.buildAndExpand(pessoaSalva.getCodigo()).toUri();
-		response.setHeader("Location", uri.toASCIIString());
+        URI uri = ServletUriComponentsBuilder.fromCurrentRequestUri().path("/{codigo}")
+                .buildAndExpand(pessoaSalva.getCodigo()).toUri();
+        response.setHeader("Location", uri.toASCIIString());
+        return ResponseEntity.created(uri).body(pessoaSalva);
+    }
 
-		return ResponseEntity.created(uri).body(pessoaSalva);
-	}
-
-	@RequestMapping(value = "/{codigo}", method = RequestMethod.GET)
-	public ResponseEntity<?> buscarporCodigo(@PathVariable("codigo") Long codigo) {
-		return pessoaRepository.findById(codigo).map(ResponseEntity::ok)
-				.orElseGet(() -> ResponseEntity.notFound().build());
-	}
+    @RequestMapping(value = "/{codigo}", method = RequestMethod.GET)
+    public ResponseEntity<?> buscarporCodigo(@PathVariable("codigo") Long codigo) {
+        return pessoaRepository.findById(codigo).map(ResponseEntity::ok)
+                .orElseGet(() -> ResponseEntity.notFound().build());
+    }
 
 }

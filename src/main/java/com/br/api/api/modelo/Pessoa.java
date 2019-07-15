@@ -8,29 +8,33 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 
-import lombok.Data;
 import lombok.EqualsAndHashCode;
+import lombok.Getter;
+import lombok.Setter;
+import lombok.ToString;
 
 @EqualsAndHashCode
-@Data
+@ToString
+@Getter
+@Setter
 @Entity
 @Table(name = "pessoa")
-
 public class Pessoa {
-
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	
 	private Long codigo;
 
 	@NotNull
 	private String nome;
 
+	@Embedded
+	private Endereco endereco;
 
 	@NotNull
 	private Boolean ativo;
 
-    @Embedded
-    private Logradouro endereco;
-
+	
 }
+

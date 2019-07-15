@@ -1,13 +1,10 @@
 package com.br.api.api.controller;
 
-import java.net.URI;
 import java.util.List;
 import java.util.Optional;
 
 import javax.servlet.http.HttpServletResponse;
-import javax.validation.Valid;
 
-import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationEventPublisher;
 import org.springframework.http.HttpStatus;
@@ -22,11 +19,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
-import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
 import com.br.api.api.event.RecursoCriadoEvent;
-import com.br.api.api.exception.ObjectNotFoundException;
-import com.br.api.api.exception.ResourceNotFoundException;
 import com.br.api.api.modelo.Pessoa;
 import com.br.api.api.repository.PessoaRepository;
 
@@ -64,6 +58,7 @@ public class PessoaController {
 	private void remover(@PathVariable Long codigo) {
 		pessoaRepository.deleteById(codigo);
 	}
+
 	@PutMapping("/{codigo}")
 	public ResponseEntity<Object> updateStudent(@RequestBody Pessoa pessoa, @PathVariable long codigo) {
 
@@ -73,11 +68,10 @@ public class PessoaController {
 			return ResponseEntity.notFound().build();
 
 		pessoa.setCodigo(codigo);
-		
+
 		pessoaRepository.save(pessoa);
 
-		
-		//return ResponseEntity.ok().build();
-		return	ResponseEntity.ok().body(pessoa);
+		// return ResponseEntity.ok().build();
+		return ResponseEntity.ok().body(pessoa);
 	}
 }

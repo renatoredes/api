@@ -4,9 +4,11 @@ import java.util.List;
 import java.util.Optional;
 
 import javax.servlet.http.HttpServletResponse;
+import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationEventPublisher;
+import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -23,6 +25,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.br.api.api.event.RecursoCriadoEvent;
 import com.br.api.api.modelo.Pessoa;
 import com.br.api.api.repository.PessoaRepository;
+import com.br.api.api.service.PessoaService;
 
 @RestController
 @RequestMapping("pessoas")
@@ -34,6 +37,9 @@ public class PessoaController {
 	// dispara um Evento do Spring
 	@Autowired
 	private ApplicationEventPublisher publisher;
+
+	@Autowired
+	private PessoaService pessoaService;
 
 	@GetMapping
 	private List<Pessoa> listar() {
@@ -60,18 +66,8 @@ public class PessoaController {
 	}
 
 	@PutMapping("/{codigo}")
-	public ResponseEntity<Object> updateStudent(@RequestBody Pessoa pessoa, @PathVariable long codigo) {
-
-		Optional<Pessoa> pessoaOptional = pessoaRepository.findById(codigo);
-
-		if (!pessoaOptional.isPresent())
-			return ResponseEntity.notFound().build();
-
-		pessoa.setCodigo(codigo);
-
-		pessoaRepository.save(pessoa);
-
-		// return ResponseEntity.ok().build();
-		return ResponseEntity.ok().body(pessoa);
+	public ResponseEntity<Pessoa> atualizar(@Valid @RequestBody Pessoa pessoa, @PathVariable long codigo) {
+		Pessoa pessoaSalva = pessoaService.atualizar(codigo, pessoa);
+		return ResponseEntity.ok(pessoaSalva);
 	}
 }

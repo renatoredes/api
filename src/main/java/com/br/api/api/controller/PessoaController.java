@@ -47,7 +47,7 @@ public class PessoaController {
 	}
 
 	@PostMapping
-	public ResponseEntity<Pessoa> criar(@RequestBody Pessoa pessoa, HttpServletResponse response) {
+	public ResponseEntity<Pessoa> criar(@Valid @RequestBody Pessoa pessoa, HttpServletResponse response) {
 		Pessoa pessoaSalva = pessoaRepository.save(pessoa);
 		publisher.publishEvent(new RecursoCriadoEvent(this, response, pessoaSalva.getCodigo()));
 		return ResponseEntity.status(HttpStatus.CREATED).body(pessoaSalva);
@@ -70,4 +70,12 @@ public class PessoaController {
 		Pessoa pessoaSalva = pessoaService.atualizar(codigo, pessoa);
 		return ResponseEntity.ok(pessoaSalva);
 	}
+					///Falta implementar a pessoa ativa
+	/*
+	 * @PutMapping("/{codigo}/ativo")
+	 * 
+	 * @ResponseStatus(HttpStatus.NO_CONTENT) public void
+	 * atualizarPropriedadeAtivo(@PathVariable Long codigo, @RequestBody Boolean
+	 * ativo) { pessoaService.atualizar(codigo, ativo); }
+	 */
 }

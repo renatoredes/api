@@ -20,13 +20,11 @@ public class PessoaService {
 		Optional<Pessoa> pessoaOptional = pessoaRepository.findById(codigo);
 
 		if (!pessoaOptional.isPresent())
-			// return ResponseEntity.notFound().build();
 			throw new EmptyResultDataAccessException(1);
 
 		pessoa.setCodigo(codigo);
 		pessoaRepository.save(pessoa);
 		return pessoaRepository.save(pessoa);
-		// return ResponseEntity.ok().body(pessoa);
 	}
 
 }

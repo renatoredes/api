@@ -1,6 +1,7 @@
 package com.br.api.api.controller;
 
 import java.util.List;
+import java.util.Optional;
 
 import javax.servlet.http.HttpServletResponse;
 import javax.validation.Valid;
@@ -49,8 +50,10 @@ public class CategoriaController {
 	// metodo que faz busca por id
 	@RequestMapping(value = "/{codigo}", method = RequestMethod.GET)
 	public ResponseEntity<?> buscarporCodigo(@PathVariable("codigo") Long codigo) {
-		return categoriaRepository.findById(codigo).map(ResponseEntity::ok)
-				.orElseGet(() -> ResponseEntity.notFound().build());
+		 Optional<Categoria> categoria = categoriaRepository.findById(codigo);
+		//return categoriaRepository.findById(codigo).map(ResponseEntity::ok)
+			//	.orElseGet(() -> ResponseEntity.notFound().build());
+		return  categoria != null ? ResponseEntity.ok(categoria) : ResponseEntity.notFound().build();
 	}
 
 	@DeleteMapping("/{codigo}")

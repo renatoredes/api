@@ -1,4 +1,4 @@
-package com.br.api.api.exceptionhandler;
+package com.br.api.api.exception;
 
 import java.util.ArrayList;
 import java.util.Arrays;

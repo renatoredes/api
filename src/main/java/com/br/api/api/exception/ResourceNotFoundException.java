@@ -1,4 +1,4 @@
-package com.br.api.api.exceptionhandler;
+package com.br.api.api.exception;
 
 public class ResourceNotFoundException extends Exception {
 

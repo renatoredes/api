@@ -2,6 +2,7 @@ package com.br.api.api.service;
 
 import java.util.Optional;
 
+import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.stereotype.Service;
@@ -16,15 +17,10 @@ public class PessoaService {
 	private PessoaRepository pessoaRepository;
 
 	public Pessoa atualizar(Long codigo, Pessoa pessoa) {
+		Pessoa pessoaSalva = buscarPessoaPorCodigo(codigo);
 
-		Optional<Pessoa> pessoaOptional = pessoaRepository.findById(codigo);
-		
-		if (!pessoaOptional.isPresent())
-			throw new EmptyResultDataAccessException(1);
-		
-		pessoa.setCodigo(codigo);
-		pessoaRepository.save(pessoa);
-		return pessoaRepository.save(pessoa);
+		BeanUtils.copyProperties(pessoa, pessoaSalva, "codigo");
+		return pessoaRepository.save(pessoaSalva);
 	}
 
 	public void atualizarPropriedadeAtivo(Long codigo, Boolean ativo) {

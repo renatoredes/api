@@ -50,9 +50,7 @@ public class CategoriaController {
 	// metodo que faz busca por id
 	@RequestMapping(value = "/{codigo}", method = RequestMethod.GET)
 	public ResponseEntity<?> buscarporCodigo(@PathVariable("codigo") Long codigo) {
-		 Optional<Categoria> categoria = categoriaRepository.findById(codigo);
-		//return categoriaRepository.findById(codigo).map(ResponseEntity::ok)
-			//	.orElseGet(() -> ResponseEntity.notFound().build());
+		 Optional<Categoria> categoria = categoriaRepository.findById(codigo);		
 		return  categoria != null ? ResponseEntity.ok(categoria) : ResponseEntity.notFound().build();
 	}
 
@@ -63,29 +61,3 @@ public class CategoriaController {
 	}
 }
 
-
-// metodo que faz busca por id
-/*
- * public Categoria buscarporcodigo(Long codigo) throws ObjectNotFoundException
- * { Optional<Categoria> categoriaSalva = categoriaRepository.findById(codigo);
- * return categoriaSalva .orElseThrow(() -> new ObjectNotFoundException(
- * "objeto não encontrado id:" + codigo + ", tipo " +
- * Categoria.class.getName())); } }
- */
-
-/*
- * // metodo que faz busca por id
- * 
- * @GetMapping("/{codigo}") public ResponseEntity<Categoria>
- * buscarporCodigo(@PathVariable(value = "codigo") Long categoriaId) throws
- * ResourceNotFoundException { Categoria categoria =
- * categoriaRepository.findById(categoriaId) .orElseThrow(() -> new
- * ResourceNotFoundException("Categoria não encontrado o codigo :: " +
- * categoriaId)); // return ResponseEntity.ok().body(categoria); return
- * categoria != null ? ResponseEntity.ok(categoria) :
- * ResponseEntity.notFound().build();
- * 
- * }
- * 
- * }
- */

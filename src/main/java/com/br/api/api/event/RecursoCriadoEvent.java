@@ -3,6 +3,7 @@ package com.br.api.api.event;
 import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.context.ApplicationEvent;
+import org.springframework.stereotype.Component;
 
 public class RecursoCriadoEvent extends ApplicationEvent {
 

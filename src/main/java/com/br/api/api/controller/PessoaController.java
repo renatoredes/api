@@ -70,12 +70,12 @@ public class PessoaController {
 		Pessoa pessoaSalva = pessoaService.atualizar(codigo, pessoa);
 		return ResponseEntity.ok(pessoaSalva);
 	}
-					///Falta implementar a pessoa ativa
-	/*
-	 * @PutMapping("/{codigo}/ativo")
-	 * 
-	 * @ResponseStatus(HttpStatus.NO_CONTENT) public void
-	 * atualizarPropriedadeAtivo(@PathVariable Long codigo, @RequestBody Boolean
-	 * ativo) { pessoaService.atualizar(codigo, ativo); }
-	 */
+	/// Implementação da propriedade pessoa ativa
+
+	@PutMapping("/{codigo}/ativo")
+	@ResponseStatus(HttpStatus.NO_CONTENT)
+	public void atualizarPropriedadeAtivo(@PathVariable Long codigo, @RequestBody (required = true)  Boolean ativo) {
+		pessoaService.atualizarPropriedadeAtivo(codigo, ativo);
+	}
+
 }

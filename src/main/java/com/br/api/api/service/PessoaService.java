@@ -18,13 +18,29 @@ public class PessoaService {
 	public Pessoa atualizar(Long codigo, Pessoa pessoa) {
 
 		Optional<Pessoa> pessoaOptional = pessoaRepository.findById(codigo);
-
+		
 		if (!pessoaOptional.isPresent())
 			throw new EmptyResultDataAccessException(1);
-
+		
 		pessoa.setCodigo(codigo);
 		pessoaRepository.save(pessoa);
 		return pessoaRepository.save(pessoa);
+	}
+
+	public void atualizarPropriedadeAtivo(Long codigo, Boolean ativo) {
+		Pessoa pessoaSalva = buscarPessoaPorCodigo(codigo);
+		pessoaSalva.setAtivo(ativo);
+		pessoaRepository.save(pessoaSalva);
+
+	}
+
+	private Pessoa buscarPessoaPorCodigo(Long codigo) {
+		Optional<Pessoa> pessoaSalva = pessoaRepository.findById(codigo);
+
+		if (pessoaSalva == null) {
+			throw new EmptyResultDataAccessException(1);
+		}
+		return pessoaSalva.get();
 	}
 
 }

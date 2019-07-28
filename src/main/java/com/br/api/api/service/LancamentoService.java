@@ -13,21 +13,25 @@ import com.br.api.api.repository.PessoaRepository;
 
 @Service
 public class LancamentoService {
-	
 
 	@Autowired
 	private PessoaRepository pessoaRepository;
-	
-	@Autowired 
+
+	@Autowired
 	private LancamentoRepository lancamentoRepository;
 
 	public Lancamento salvar(Lancamento lancamento) {
 		Optional<Pessoa> pessoa = pessoaRepository.findById(lancamento.getPessoa().getCodigo());
-		if (pessoa == null || pessoa.isInativo()) {
-			throw new PessoaInexistenteOuInativaException();
-		}
 		
+		  if (pessoa == null || pessoa.get().isInativo()) { throw new
+		  PessoaInexistenteOuInativaException(); }
+		 
+
+		/*
+		 * if (pessoa.isPresent()) { throw new PessoaInexistenteOuInativaException(); }
+		 */
+
 		return lancamentoRepository.save(lancamento);
 	}
-	
+
 }

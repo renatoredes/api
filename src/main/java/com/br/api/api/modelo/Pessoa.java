@@ -25,8 +25,7 @@ import lombok.ToString;
 public class Pessoa {
 
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	
+	@GeneratedValue(strategy = GenerationType.IDENTITY)	
 	private Long codigo;
 
 	@NotNull

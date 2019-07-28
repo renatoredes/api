@@ -63,11 +63,6 @@ public class LancamentoRepositoryImpl implements LancamentoRepositoryQuery {
 
 		return predicates.toArray(new Predicate[predicates.size()]);
 	}
-	
-	
-	
-	
-
 	private void adcionarRestricoesDePaginacao(TypedQuery<Lancamento> query, Pageable pageable) {
 		int paginaAtual = pageable.getPageNumber();
 		int totalRegistrosPorPagina = pageable.getPageSize();

@@ -6,7 +6,10 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.persistence.Transient;
 import javax.validation.constraints.NotNull;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
@@ -22,8 +25,7 @@ import lombok.ToString;
 public class Pessoa {
 
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	
+	@GeneratedValue(strategy = GenerationType.IDENTITY)	
 	private Long codigo;
 
 	@NotNull
@@ -36,5 +38,10 @@ public class Pessoa {
 	private Boolean ativo;
 
 	
+	@JsonIgnore
+	@Transient
+	public boolean isInativo() {
+		return !this.ativo;
+	}
 }
 

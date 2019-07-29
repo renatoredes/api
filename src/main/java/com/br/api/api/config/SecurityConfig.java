@@ -13,12 +13,15 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
 	@Override
 	protected void configure(AuthenticationManagerBuilder auth) throws Exception {
+	//	auth.inMemoryAuthentication().withUser("admin").password("admin").roles("ROLE");
+	// java.lang.IllegalArgumentException: There is no PasswordEncoder mapped for the id "null"	
+		
 		auth.inMemoryAuthentication().withUser("admin").roles("ADMIN").password("{noop}admin");
 	}
 	
 	@Override
 	protected void configure(HttpSecurity http) throws Exception {
-		http.authorizeRequests()
+				 http.authorizeRequests()
 				.antMatchers("/categorias").permitAll()
 				.anyRequest().authenticated()
 				.and()

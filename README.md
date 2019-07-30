@@ -3,6 +3,8 @@ Bem vindo a Nossa API Genérica com Spring Boot !
 
 * Spring-Boot 2.1.5
 * Java 1.8
+* branch de inicial : Start_Inicial_api
+A branch <i>Start_Inicial_api</i> é uma branch inicial 
 
 Essa é uma api genérica que poderá ser utilizada como base para implementações de outras api 
 [Documentação da API](https://github.com/renatoredes/api/wiki)

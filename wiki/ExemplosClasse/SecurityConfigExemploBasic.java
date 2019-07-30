@@ -1,3 +1,4 @@
+/*
 package com.br.api.api.config;
 
 import org.springframework.context.annotation.Configuration;
@@ -9,13 +10,11 @@ import org.springframework.security.config.http.SessionCreationPolicy;
 
 @Configuration
 @EnableWebSecurity
-public class SecurityConfig extends WebSecurityConfigurerAdapter {
+public class SecurityConfigExemploBasic extends WebSecurityConfigurerAdapter {
 
 	@Override
 	protected void configure(AuthenticationManagerBuilder auth) throws Exception {
-	//	auth.inMemoryAuthentication().withUser("admin").password("admin").roles("ROLE");
-	// java.lang.IllegalArgumentException: There is no PasswordEncoder mapped for the id "null"	
-		
+			
 		auth.inMemoryAuthentication().withUser("admin").roles("ADMIN").password("{noop}admin");
 	}
 	
@@ -31,3 +30,4 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 	}
 	
 }
+*/

@@ -21,7 +21,7 @@ public class WebSecurityConfigurerAdapterCustom extends WebSecurityConfigurerAda
 
 	    @Autowired
 	    public void globalUserDetails(final AuthenticationManagerBuilder auth) throws Exception {
-	        // @formatter:off
+	        // Usuario em memoria
 	        auth.inMemoryAuthentication().withUser("admin").password(passwordEncoder.encode("admin")).roles("USER");
 	    }
 
@@ -33,6 +33,7 @@ public class WebSecurityConfigurerAdapterCustom extends WebSecurityConfigurerAda
 
 	    @Override
 	    protected void configure(HttpSecurity http) throws Exception {
+	    	//o recurso categorias não é nescessario autenticação
 	        http.authorizeRequests().antMatchers("/categorias").permitAll().anyRequest().authenticated().and()
 	        .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS).and().csrf().disable();
 

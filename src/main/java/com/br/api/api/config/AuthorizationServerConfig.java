@@ -29,10 +29,22 @@ public class AuthorizationServerConfig extends AuthorizationServerConfigurerAdap
 
     @Override
     public void configure(ClientDetailsServiceConfigurer clients) throws Exception {
-        clients.inMemory().withClient("angular").secret(passwordEncoder().encode("@ngul@r0")).scopes("read", "write")
+        clients.inMemory()
+        .withClient("angular")
+        .secret(passwordEncoder()
+        .encode("@ngul@r0"))
+        .scopes("read", "write")
         .authorizedGrantTypes("password","refresh_token")
-        .accessTokenValiditySeconds(20) //Expira em 20 segundos
-        .refreshTokenValiditySeconds(3600 * 12);  //Atualiza em 1 dia   
+        .accessTokenValiditySeconds(1800) //Expira em 20 segundos
+        .refreshTokenValiditySeconds(3600 * 24) //Atualiza em 1 dia   
+        .and()
+        .withClient("mobile")
+        .secret(passwordEncoder()
+        .encode("@mobile"))
+        .scopes("read", "write")
+        .authorizedGrantTypes("password","refresh_token")
+        .accessTokenValiditySeconds(1800) //Expira em 20 segundos
+        .refreshTokenValiditySeconds(3600 * 24); //Atualiza em 1 dia
     }
 
     @Override
@@ -65,4 +77,5 @@ public class AuthorizationServerConfig extends AuthorizationServerConfigurerAdap
     public BCryptPasswordEncoder passwordEncoder() {
         return new BCryptPasswordEncoder();
     }
+    
 }

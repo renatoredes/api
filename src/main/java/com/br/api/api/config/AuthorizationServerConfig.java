@@ -18,7 +18,6 @@ import org.springframework.security.oauth2.provider.token.TokenStore;
 import org.springframework.security.oauth2.provider.token.store.JwtAccessTokenConverter;
 import org.springframework.security.oauth2.provider.token.store.JwtTokenStore;
 
-
 @Configuration
 @EnableAuthorizationServer
 public class AuthorizationServerConfig extends AuthorizationServerConfigurerAdapter {
@@ -30,9 +29,22 @@ public class AuthorizationServerConfig extends AuthorizationServerConfigurerAdap
 
     @Override
     public void configure(ClientDetailsServiceConfigurer clients) throws Exception {
-        clients.inMemory().withClient("angular").secret(passwordEncoder().encode("@ngul@r0")).scopes("read", "write")
-        .authorizedGrantTypes("password").accessTokenValiditySeconds(1800)
-        .refreshTokenValiditySeconds(3600 * 12);     
+        clients.inMemory()
+        .withClient("angular")
+        .secret(passwordEncoder()
+        .encode("@ngul@r0"))
+        .scopes("read", "write")
+        .authorizedGrantTypes("password","refresh_token")
+        .accessTokenValiditySeconds(1800) //Expira em 20 segundos
+        .refreshTokenValiditySeconds(3600 * 24) //Atualiza em 1 dia   
+        .and()
+        .withClient("mobile")
+        .secret(passwordEncoder()
+        .encode("@mobile"))
+        .scopes("read", "write")
+        .authorizedGrantTypes("password","refresh_token")
+        .accessTokenValiditySeconds(1800) //Expira em 20 segundos
+        .refreshTokenValiditySeconds(3600 * 24); //Atualiza em 1 dia
     }
 
     @Override
@@ -65,4 +77,5 @@ public class AuthorizationServerConfig extends AuthorizationServerConfigurerAdap
     public BCryptPasswordEncoder passwordEncoder() {
         return new BCryptPasswordEncoder();
     }
+    
 }

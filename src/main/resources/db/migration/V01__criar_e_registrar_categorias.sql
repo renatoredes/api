@@ -1,5 +1,5 @@
 CREATE TABLE categoria (
-	codigo SERIAL PRIMARY KEY,
+	codigo serial PRIMARY KEY,
 	nome VARCHAR(50) NOT NULL
 );
 

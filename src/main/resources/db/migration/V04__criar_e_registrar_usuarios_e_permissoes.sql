@@ -18,8 +18,8 @@ CREATE TABLE usuario_permissao (
 	FOREIGN KEY (codigo_permissao) REFERENCES permissao(codigo)
 ) ;
 
-INSERT INTO usuario (codigo, nome, email, senha) values (1, 'Administrador', 'admin@algamoney.com', '$2a$10$X607ZPhQ4EgGNaYKt3n4SONjIv9zc.VMWdEuhCuba7oLAL5IvcL5.');
-INSERT INTO usuario (codigo, nome, email, senha) values (2, 'Maria Silva', 'maria@algamoney.com', '$2a$10$Zc3w6HyuPOPXamaMhh.PQOXvDnEsadztbfi6/RyZWJDzimE8WQjaq');
+INSERT INTO usuario (codigo, nome, email, senha) values (1, 'Administrador', 'admin@apialfa.com', '$2a$10$VrBYyXl7rxonT7OSCVy7VOx.t27X3OvjFF0n0fjLeMvgujwJWXnZ2');
+INSERT INTO usuario (codigo, nome, email, senha) values (2, 'Lucas Ferreira', 'lucas@apialfa.com', '$2a$10$t1/HfqCCCHk./bV.NGz4Fu2hIR3cCpBGhR.xe1pSLySo1rphy84xO');
 
 INSERT INTO permissao (codigo, descricao) values (1, 'ROLE_CADASTRAR_CATEGORIA');
 INSERT INTO permissao (codigo, descricao) values (2, 'ROLE_PESQUISAR_CATEGORIA');

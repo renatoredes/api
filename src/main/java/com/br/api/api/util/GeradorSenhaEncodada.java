@@ -6,7 +6,7 @@ public class GeradorSenhaEncodada {
 
 	public static void main(String[] args) {
 		BCryptPasswordEncoder geraSenhaEncodada = new BCryptPasswordEncoder();
-		System.out.println(geraSenhaEncodada.encode("admin"));
+		System.out.println(geraSenhaEncodada.encode("Maria"));
 		
 	}
 

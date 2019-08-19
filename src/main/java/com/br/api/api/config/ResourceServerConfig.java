@@ -46,6 +46,7 @@ public class ResourceServerConfig extends ResourceServerConfigurerAdapter {
 		.disable();
 	}
 
+
 	@Override
 	public void configure(ResourceServerSecurityConfigurer resources) throws Exception {
 		resources.stateless(true);

@@ -11,11 +11,19 @@ import org.springframework.security.oauth2.config.annotation.web.configuration.E
 @EnableResourceServer
 @Configuration
 public class WebSecurityConfigurerAdapterCustom extends WebSecurityConfigurerAdapter {
+<<<<<<< HEAD
 	
+=======
+
+>>>>>>> parent of 8644336... WebSecurityConfigurerAdapterCustom
 	@Override
 	@Bean
 	public AuthenticationManager authenticationManagerBean() throws Exception {
 		return super.authenticationManagerBean();
 	}
+<<<<<<< HEAD
 	
+=======
+
+>>>>>>> parent of 8644336... WebSecurityConfigurerAdapterCustom
 }

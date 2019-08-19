@@ -1,4 +1,4 @@
-CREATE TABLE IF NOT EXISTS pessoa (
+CREATE TABLE pessoa (
 	codigo serial PRIMARY KEY,
 	nome VARCHAR(50) NOT NULL,
 	logradouro VARCHAR(30),

@@ -18,15 +18,7 @@ import org.springframework.security.oauth2.config.annotation.web.configuration.E
 @Configuration
 public class WebSecurityConfigurerAdapterCustom extends WebSecurityConfigurerAdapter {
 	
-	@Autowired
-    private BCryptPasswordEncoder passwordEncoder;
-
-    @Autowired
-    public void globalUserDetails(final AuthenticationManagerBuilder auth) throws Exception {
-        // Usuario em memoria
-        auth.inMemoryAuthentication().withUser("admin").password(passwordEncoder.encode("admin")).roles("USER");
-    }
-
+	   
     @Override
     @Bean
     public AuthenticationManager authenticationManagerBean() throws Exception {

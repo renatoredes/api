@@ -22,7 +22,7 @@ import com.br.api.api.config.cookie.property.ApiProperty;
 public class CorsFilter implements Filter {
 	
 	@Autowired
-	ApiProperty alfaproperty;
+	ApiProperty apiproperty;
 
 	@Override
 	public void doFilter(ServletRequest req, ServletResponse resp, FilterChain chain)
@@ -31,10 +31,10 @@ public class CorsFilter implements Filter {
 		HttpServletRequest request = (HttpServletRequest) req;
 		HttpServletResponse response = (HttpServletResponse) resp;
 		
-		response.setHeader("Access-Control-Allow-Origin", alfaproperty.getOriginPermitida());
+		response.setHeader("Access-Control-Allow-Origin", apiproperty.getOriginPermitida());
         response.setHeader("Access-Control-Allow-Credentials", "true");
 
-		if ("OPTIONS".equals(request.getMethod()) && alfaproperty.getOriginPermitida().equals(request.getHeader("Origin"))) {
+		if ("OPTIONS".equals(request.getMethod()) && apiproperty.getOriginPermitida().equals(request.getHeader("Origin"))) {
 			response.setHeader("Access-Control-Allow-Methods", "POST, GET, DELETE, PUT, OPTIONS");
         	response.setHeader("Access-Control-Allow-Headers", "Authorization, Content-Type, Accept");
         	response.setHeader("Access-Control-Max-Age", "3600");

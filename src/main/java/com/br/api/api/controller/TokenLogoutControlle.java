@@ -16,20 +16,20 @@ import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.br.api.api.config.cookie.property.AlfaProperty;
+import com.br.api.api.config.cookie.property.ApiProperty;
 
 @RestController
 @RequestMapping("/tokens")
 public class TokenLogoutControlle {
 
 	@Autowired
-	private AlfaProperty alfaproperty;
+	private ApiProperty apiproperty;
 	
 		@DeleteMapping("/revoke")
 		private void revoke(HttpServletRequest req, HttpServletResponse resp) {
 			Cookie cookie = new Cookie("refreshToken", null);
 			cookie.setHttpOnly(true);
-			cookie.setSecure(alfaproperty.getSeguranca().isEnableHttps()); // Em produção será true
+			cookie.setSecure(apiproperty.getSeguranca().isEnableHttps()); // Em produção será true
 			cookie.setPath(req.getContextPath() + "/oauth/token");
 			/*valor zero faz com que o cookie seja excluído. */
 			cookie.setMaxAge(0);

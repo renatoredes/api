@@ -17,15 +17,15 @@ import org.springframework.security.oauth2.common.OAuth2AccessToken;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.servlet.mvc.method.annotation.ResponseBodyAdvice;
 
-import com.br.api.api.config.cookie.property.AlfaProperty;
+import com.br.api.api.config.cookie.property.ApiProperty;
 
 /*OAuth2AccessToken tipo de dado que vai ser interceptado*/
 @ControllerAdvice
 public class RefreshTokenPostProcessor implements ResponseBodyAdvice<OAuth2AccessToken> {
 
 
-	@Autowired
-	private AlfaProperty alfaproperty;
+    @Autowired
+    private ApiProperty apiproperty;
 	
 
 	@Override
@@ -63,7 +63,7 @@ public class RefreshTokenPostProcessor implements ResponseBodyAdvice<OAuth2Acces
 		 * deve funcionar apenas em https ou não ? migrar para true em produção e em
 		 * desenvolvimento falso
 		 */
-		refreshTokenCookie.setSecure(alfaproperty.getSeguranca().isEnableHttps()); // Mudar para true em producao
+		refreshTokenCookie.setSecure(apiproperty.getSeguranca().isEnableHttps()); // Mudar para true em producao
 		/* caminho da requisição */
 		refreshTokenCookie.setPath(req.getContextPath() + "/oauth/token");
 		/* tempo de expiração em dias neste caso adcionei 30 dias */

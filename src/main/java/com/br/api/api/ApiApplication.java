@@ -4,10 +4,10 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
 
-import com.br.api.api.config.cookie.property.AlfaProperty;
+import com.br.api.api.config.cookie.property.ApiProperty;
 
 @SpringBootApplication
-@EnableConfigurationProperties(AlfaProperty.class)
+@EnableConfigurationProperties(ApiProperty.class)
 public class ApiApplication {
 
 	public static void main(String[] args) {

@@ -15,14 +15,14 @@ import org.springframework.core.Ordered;
 import org.springframework.core.annotation.Order;
 import org.springframework.stereotype.Component;
 
-import com.br.api.api.config.cookie.property.AlfaProperty;
+import com.br.api.api.config.cookie.property.ApiProperty;
 
 @Component
 @Order(Ordered.HIGHEST_PRECEDENCE)
 public class CorsFilter implements Filter {
 	
 	@Autowired
-	AlfaProperty alfaproperty;
+	ApiProperty alfaproperty;
 
 	@Override
 	public void doFilter(ServletRequest req, ServletResponse resp, FilterChain chain)

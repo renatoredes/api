@@ -6,8 +6,8 @@ import org.springframework.stereotype.Component;
 /*Classe responsável pelas configurações de propriedades, Profiles Spring
  * Habilita a segurança do refresh token para true ou seja em produção será https e em teste será false*/
 
-@ConfigurationProperties("alfa") // apialfa é o nome para essa configuração
-public class AlfaProperty {
+@ConfigurationProperties("api") // api é o nome para essa configuração
+public class ApiProperty {
 
 	private String originPermitida = "http://localhost:8000";
 

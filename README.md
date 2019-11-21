@@ -6,6 +6,7 @@ Essa é uma api genérica que poderá ser utilizada como base para implementaç�
 * Spring-Boot 2.1.5.RELEASE
 * Java 1.8 ou posterior
 * Flyway
+* Mysql - Banco usado para teste, você pode definir outro banco.
 
 
 ## Documentação do Projeto

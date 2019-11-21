@@ -4,12 +4,12 @@ Essa é uma api genérica que poderá ser utilizada como base para implementaç�
 
 ## Tecnologias do lado do servidor
 * Spring-Boot 2.1.5.RELEASE
-* Java 1.8 ou posterior
-* Flywaydb
-* Mysql - Banco usado para teste, você pode definir outro banco.
 * Spring-security-oauth2 2.3.5.RELEASE
 * Spring-security-jwt 1.0.8.RELEASE
-* Hibernate
+* Java 1.8 ou posterior
+* Flywaydb
+* Mysql & Postgresql - Banco usado para teste, você pode definir outro banco.
+
 
 ## Documentação do Projeto
 [Documentação da API](https://github.com/renatoredes/api/wiki).<br />

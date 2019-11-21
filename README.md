@@ -1,6 +1,6 @@
 # Alfa Api Genérica
 Bem vindo! <br />
-Essa é uma api genérica que poderá ser utilizada como base para na criação de diversos projetos<br /> 
+Essa é uma api genérica que poderá ser utilizada como base na criação de diversos projetos<br /> 
 
 ## Tecnologias do lado do servidor
 * Spring-Boot 2.1.5.RELEASE

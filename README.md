@@ -20,6 +20,8 @@ Essa é uma api genérica que poderá ser utilizada como base na criação de di
 * IDE - Eclipse or Spring Tool Suite (STS)
 * Visual Studio
 * Angular CLI
+* JQuery
+* Npm
 
 
 ## Documentação do Projeto

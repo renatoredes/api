@@ -11,7 +11,7 @@ Essa é uma api genérica que poderá ser utilizada como base na criação de di
 * Flywaydb
 * Mysql & Postgresql - Banco usado para teste, você pode definir outro banco.
 
-## Front end tecnologias
+##Tecnologias no Front end
 * Angular 
 * Bootstrap 4
 * JQuery

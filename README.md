@@ -14,14 +14,15 @@ Essa é uma api genérica que poderá ser utilizada como base na criação de di
 ## Front end tecnologias
 * Angular 
 * Bootstrap 4
+* JQuery
+* Npm
 
 ## Ferramentas
 * Maven 4.0
 * IDE - Eclipse or Spring Tool Suite (STS)
 * Visual Studio
 * Angular CLI
-* JQuery
-* Npm
+
 
 
 ## Documentação do Projeto

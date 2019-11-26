@@ -3,7 +3,7 @@ Bem vindo! <br />
 Essa é uma api genérica que poderá ser utilizada como base na criação de diversos projetos<br /> 
 
 ## Tecnologias do lado do servidor
-* Spring-Boot 2.1.5.RELEASE
+* Spring-Boot 4.2.2.RELEASE
 * Spring Data JPA - 2
 * Spring-security-oauth2 2.3.5.RELEASE
 * Spring-security-jwt 1.0.8.RELEASE

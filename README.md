@@ -5,8 +5,8 @@ Essa é uma api genérica que poderá ser utilizada como base na criação de di
 ## Tecnologias do lado do servidor
 * Spring-Boot 4.2.2.RELEASE
 * Spring Data JPA - 2
-* Spring-security-oauth2 2.3.5.RELEASE
-* Spring-security-jwt 1.0.8.RELEASE
+* Spring-security-oauth2 
+* Spring-security-jwt 
 * Java 1.8 ou posterior
 * Flywaydb
 * Mysql & Postgresql - Banco usado para teste, você pode definir outro banco.

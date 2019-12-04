@@ -2,7 +2,7 @@
 Bem vindo! <br />
 Essa é uma api genérica que poderá ser utilizada como base na criação de diversos projetos<br /> 
 
-## Tecnologias do lado do servidor
+## Tecnologias usadas no lado do lado do servidor
 * Spring-Boot 
 * Spring Data JPA - 2
 * Spring-security-oauth2 
@@ -11,7 +11,7 @@ Essa é uma api genérica que poderá ser utilizada como base na criação de di
 * Flywaydb
 * Mysql & Postgresql - Banco usado para teste, você pode definir outro banco.
 
-## Tecnologias no Front end
+## Tecnologias usadas no lado do Front end
 * Angular 
 * Bootstrap 4
 * JQuery

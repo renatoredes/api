@@ -3,8 +3,8 @@ CREATE TABLE categoria (
 	nome VARCHAR(50) NOT NULL
 );
 
-INSERT INTO categoria (nome) values ('Lazer');
-INSERT INTO categoria (nome) values ('Alimentação');
-INSERT INTO categoria (nome) values ('Supermercado');
-INSERT INTO categoria (nome) values ('Farmácia');
+INSERT INTO categoria (nome) values ('exemplo-01');
+INSERT INTO categoria (nome) values ('exemplo-02');
+INSERT INTO categoria (nome) values ('exemplo-03');
+INSERT INTO categoria (nome) values ('exemplo-04');
 INSERT INTO categoria (nome) values ('Outros');

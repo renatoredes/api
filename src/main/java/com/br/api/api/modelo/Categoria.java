@@ -23,8 +23,6 @@ public class Categoria {
     @Id
     private Long codigo;
    
-
-
     private String nome;
 
 }

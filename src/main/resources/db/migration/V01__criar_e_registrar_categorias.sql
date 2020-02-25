@@ -1,10 +1,20 @@
-CREATE TABLE categoria (
-	codigo serial PRIMARY KEY,
-	nome VARCHAR(50) NOT NULL
+CREATE TABLE categoria
+(
+    codigo serial PRIMARY KEY,
+    nome character varying(20) NOT NULL,
+    receitas character varying(20),
+    despesas character varying(20),
+    contas character varying(20) ,
+    servicos character varying(20)   
+   
 );
+INSERT INTO categoria(nome, receitas, despesas, contas, servicos)
+	VALUES ('exemplo1', 'exemplo2', 'exemplo3', 'exemplo4', 'exemplo5');
+	
 
-INSERT INTO categoria (nome) values ('Lazer');
-INSERT INTO categoria (nome) values ('Alimentação');
-INSERT INTO categoria (nome) values ('Supermercado');
-INSERT INTO categoria (nome) values ('Farmácia');
-INSERT INTO categoria (nome) values ('Outros');
+INSERT INTO categoria(nome, receitas, despesas, contas, servicos)
+	VALUES ('exemplo1', 'exemplo2', 'exemplo3', 'exemplo4', 'exemplo5');
+	
+
+INSERT INTO categoria(nome, receitas, despesas, contas, servicos)
+	VALUES ('exemplo1', 'exemplo2', 'exemplo3', 'exemplo4', 'exemplo5');

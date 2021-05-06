@@ -30,6 +30,16 @@ Essa é uma api genérica que poderá ser utilizada como base na criação de di
 
 ![API](https://github.com/renatoredes/api/blob/DOCUMENTATION/wiki/img/springboot.png) <br />
 
+## License
+MIT © [Renato Ferreira](https://github.com/renatoredes)<br />
+
+## 👨👩 Social [🔝](#welcome-badges-4-readmemd-profile)
+
+Badge | URL
+------------ | -------------
+<img src="https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white" /> | [Renato](https://www.linkedin.com/in/renatoredes/)<br />
+
+
 
 
 
